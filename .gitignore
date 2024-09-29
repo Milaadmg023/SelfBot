@@ -1,0 +1,4 @@
+venv
+.env
+selfbot.session
+__pycache__
