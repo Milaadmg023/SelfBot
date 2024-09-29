@@ -4,6 +4,10 @@ from modules.db import DB_Controller
 from helpers.greeting import greeting
 from helpers.quick_replys import quick_reply
 from helpers.public_msgs import public_msgs
+import config
+
+ONE_TIME_TXT = config.ONE_TIME_TXT
+QUICK_TXT = config.QUICK_TXT
 
 db = DB_Controller()
 
@@ -13,9 +17,9 @@ async def private_handler(client:Client , message:Message):
     txt = message.text
     await greeting(client, message , userid)
     # handleing quick replys
-    if txt == "تست":
+    if txt == ONE_TIME_TXT:
         await quick_reply(client, message , txt)
-    elif txt == "کارت":
+    elif txt == QUICK_TXT:
         await quick_reply(client, message , txt)
 
 @Client.on_message(filters.me)
